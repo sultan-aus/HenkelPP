@@ -1,0 +1,114 @@
+:root {
+  /* Henkel Brand Colors */
+  --henkel-red: #E60000;
+  --henkel-red-hover: #cc0000;
+  --henkel-gray: #f4f4f4;
+  --henkel-dark-gray: #333333;
+  --henkel-text: #1a1a1a;
+  --henkel-white: #ffffff;
+  
+  /* Functional Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  --color-border: #e5e7eb;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--henkel-gray);
+  color: var(--henkel-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 0.875rem;
+  gap: var(--spacing-sm);
+}
+
+.btn-primary {
+  background-color: var(--henkel-red);
+  color: var(--henkel-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--henkel-red-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--henkel-red);
+  color: var(--henkel-red);
+}
+
+.btn-outline:hover {
+  background-color: rgba(230, 0, 0, 0.05);
+}
+
+.card {
+  background: var(--henkel-white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-success { background: #d1fae5; color: #065f46; }
+.badge-warning { background: #fef3c7; color: #92400e; }
+.badge-danger { background: #fee2e2; color: #991b1b; }
+.badge-info { background: #dbeafe; color: #1e40af; }
+
+/* Layout Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: var(--spacing-sm); }
+.gap-4 { gap: var(--spacing-md); }
+.w-full { width: 100%; }
+.h-screen { height: 100vh; }
+.overflow-hidden { overflow: hidden; }
