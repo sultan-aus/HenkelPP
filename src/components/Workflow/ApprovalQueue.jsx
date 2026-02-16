@@ -54,15 +54,7 @@ const ApprovalQueue = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
                 {pendingUpdates.map((update) => (
-                    <div key={update.id} style={{
-                        border: '1px solid #e5e7eb',
-                        borderRadius: '8px',
-                        padding: 'var(--spacing-md)',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        backgroundColor: '#fff'
-                    }}>
+                    <div key={update.id} className="responsive-list-item">
                         <div style={{ display: 'flex', gap: 'var(--spacing-md)' }}>
                             <div style={{
                                 padding: '12px',

@@ -23,7 +23,7 @@ const ChangeLog = () => {
 
     return (
         <div className="card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-lg)' }}>
+            <div className="responsive-header">
                 <h3 style={{ margin: 0 }}>Change History</h3>
                 <div style={{ display: 'flex', gap: 'var(--spacing-sm)' }}>
                     <button className="btn btn-outline" style={{ padding: '6px 12px' }}>
