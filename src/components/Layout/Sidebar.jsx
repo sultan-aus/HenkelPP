@@ -1,8 +1,7 @@
 import React from 'react';
-import { LayoutDashboard, FilePlus, History, CheckSquare, Settings, LogOut } from 'lucide-react';
-import clsx from 'clsx';
+import { LayoutDashboard, FilePlus, History, CheckSquare, Settings, LogOut, X } from 'lucide-react';
 
-const Sidebar = ({ activeTab, onTabChange }) => {
+const Sidebar = ({ activeTab, onTabChange, isOpen, isMobile, onClose }) => {
     const menuItems = [
         { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
         { id: 'submit', label: 'Submit Update', icon: FilePlus },
@@ -20,27 +19,47 @@ const Sidebar = ({ activeTab, onTabChange }) => {
             height: '100vh',
             position: 'fixed',
             left: 0,
-            top: 0
+            top: 0,
+            zIndex: 50,
+            transition: 'transform 0.3s ease-in-out',
+            transform: isMobile && !isOpen ? 'translateX(-100%)' : 'translateX(0)',
+            boxShadow: isMobile && isOpen ? 'var(--shadow-lg)' : 'none'
         }}>
             <div className="logo-container" style={{
                 padding: 'var(--spacing-lg)',
                 borderBottom: '1px solid var(--color-border)',
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'space-between',
                 gap: 'var(--spacing-sm)'
             }}>
-                <div style={{
-                    width: '32px',
-                    height: '32px',
-                    backgroundColor: 'var(--henkel-red)',
-                    borderRadius: '4px'
-                }}></div>
-                <h1 style={{
-                    margin: 0,
-                    fontSize: '1.25rem',
-                    fontWeight: 700,
-                    color: 'var(--henkel-red)'
-                }}>Henkel <span style={{ color: 'var(--henkel-dark-gray)', fontWeight: 400 }}>Plan</span></h1>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
+                    <div style={{
+                        width: '32px',
+                        height: '32px',
+                        backgroundColor: 'var(--henkel-red)',
+                        borderRadius: '4px'
+                    }}></div>
+                    <h1 style={{
+                        margin: 0,
+                        fontSize: '1.25rem',
+                        fontWeight: 700,
+                        color: 'var(--henkel-red)'
+                    }}>Henkel <span style={{ color: 'var(--henkel-dark-gray)', fontWeight: 400 }}>Plan</span></h1>
+                </div>
+                {isMobile && (
+                    <button
+                        onClick={onClose}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            color: 'var(--henkel-text)'
+                        }}
+                    >
+                        <X size={24} />
+                    </button>
+                )}
             </div>
 
             <nav style={{ flex: 1, padding: 'var(--spacing-md)' }}>
